@@ -71,17 +71,6 @@ ROUTE: Birla Mandir -> Hawa Mahal -> Amer Fort -> Nahargarh Fort -> Galta Ji Tem
 
 ---
 
-## 📁 Project Structure
-
-```
-smart_tourism/
-│
-├── knapsack.c        # Main source file (Knapsack + TSP logic + city data)
-└── README.md
-```
-
----
-
 ## 🔬 Algorithms
 
 ### 0/1 Knapsack
@@ -122,23 +111,8 @@ typedef struct {
 
 ---
 
-## 💡 Possible Improvements
-
-- Replace mock coordinates with real GPS data (latitude/longitude).
-- Add a GUI or web frontend for interactive city/budget selection.
-- Load city and place data from external JSON/CSV files instead of hardcoded arrays.
-- Extend TSP to return to the starting point (closed-loop tour).
-- Add transport cost between attractions to the optimization model.
-
----
 
 ## 🛠️ Dependencies
 
 - Standard C libraries: `stdio.h`, `stdlib.h`, `string.h`, `math.h`
 - Compiler: GCC (or any C99-compatible compiler)
-
----
-
-## 📄 License
-
-This project is open-source and free to use for educational purposes.
