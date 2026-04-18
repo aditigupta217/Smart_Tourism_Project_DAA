@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Tourism Budget Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-overlay"></div>
+
+    <main class="container">
+        <header class="hero">
+            <h1><i class="fa-solid fa-map-location-dot"></i> Smart Tourism</h1>
+            <p>Optimize your trip using the 0/1 Knapsack Algorithm</p>
+        </header>
+
+        <section class="planner-box">
+            <div class="input-group">
+                <div class="field">
+                    <label for="city">Select City</label>
+                    <select id="city">
+                        <option value="0">Delhi</option>
+                        <option value="1">Mumbai</option>
+                        <option value="2">Jaipur</option>
+                        <option value="3">Goa</option>
+                        <option value="4">Kerala</option>
+                        <option value="5">Bangalore</option>
+                        <option value="6">Hyderabad</option>
+                        <option value="7">Varanasi</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="budget">Your Budget (₹)</label>
+                    <input type="number" id="budget" placeholder="Enter budget (e.g. 5000)" min="0">
+                </div>
+                <button id="planBtn" class="primary-btn">
+                    <span class="btn-text">Plan My Trip</span>
+                    <i class="fa-solid fa-plane-departure"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="results" class="results-container hidden">
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <span class="label">Total Spent</span>
+                    <span class="value" id="totalCost">₹0</span>
+                </div>
+                <div class="summary-card">
+                    <span class="label">Remaining</span>
+                    <span class="value" id="remainingBudget">₹0</span>
+                </div>
+                <div class="summary-card">
+                    <span class="label">Total Value (Rating)</span>
+                    <span class="value" id="totalRating">0</span>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-label">
+                    <span>Budget Utilization</span>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progressBar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="route-section">
+                <div class="section-header">
+                    <i class="fa-solid fa-route"></i>
+                    <h2>Optimal Travel Route (TSP)</h2>
+                </div>
+                <div id="bestRoute" class="route-display">
+                    <!-- Route will be injected here -->
+                </div>
+            </div>
+
+            <div class="places-grid" id="placesGrid">
+                <!-- Places will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
