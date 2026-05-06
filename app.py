@@ -22,27 +22,30 @@ def plan_trip():
     try:
         # Run the C program using subprocess
         # Pass city_index and budget as arguments
-        result = subprocess.run([executable, str(city_index), str(budget)], 
-                               capture_output=True, text=True, check=True)
-        
+        result = subprocess.run(
+            [executable, str(city_index), str(budget)],
+            capture_output=True, text=True, check=True
+        )
+
         output = result.stdout
-        print("C Program Output:", output) # For debugging
+        print("C Program Output:", output)  # For debugging
 
         # Parse the output from the C program
         lines = output.split('\n')
         places = []
         total_cost = 0
         total_rating = 0
-        
+
         parsing_results = False
         best_route = ""
+
         for line in lines:
             if '---RESULT---' in line:
                 parsing_results = True
                 continue
             if not parsing_results:
                 continue
-                
+
             if 'PLACE:' in line:
                 parts = line.split('|')
                 name = parts[0].replace('PLACE:', '').strip()
@@ -75,5 +78,8 @@ def plan_trip():
             'message': str(e)
         }), 500
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+  
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port, debug=False)
